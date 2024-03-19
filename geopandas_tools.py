@@ -1,5 +1,6 @@
 from math import cos, sin, radians
 from shapely import LineString, Point
+from typing import Iterable
 
 
 def project(point: Point, distance: float, angle: float) -> Point:
