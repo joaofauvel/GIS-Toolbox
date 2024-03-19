@@ -120,19 +120,6 @@ crs = f'EPSG:{gdf.crs.to_epsg()}'
 crs
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    Cell In[12], line 1
-    ----> 1 crs = f'EPSG:{gdf.crs.to_epsg()}'
-          2 crs
-    
-
-    NameError: name 'gdf' is not defined
-
-
 ## Create section tracks based on SECTIONID and IsoTime attributes
 
 
@@ -159,178 +146,6 @@ gdf_section_tracks = (
     .pipe(to_parquet,'file.parquet',compression='zstd') # any GeoPandas io function can be used instead 
 )
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>section_track</th>
-      <th>SECTIONID</th>
-      <th>geometry</th>
-      <th>datetime</th>
-      <th>FUEL</th>
-      <th>VEHICLSPEED</th>
-      <th>DISTANCE</th>
-      <th>Heading</th>
-      <th>SWATHWIDTH</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>41368</td>
-      <td>LINESTRING (425996.742 8470930.166, 425996.440...</td>
-      <td>2023-10-25 14:01:57.644000+00:00</td>
-      <td>0.01222425</td>
-      <td>7.48971829</td>
-      <td>2.07641</td>
-      <td>351.269018</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>41371</td>
-      <td>LINESTRING (425997.237 8470930.237, 425996.935...</td>
-      <td>2023-10-25 14:01:57.644000+00:00</td>
-      <td>0.00499739</td>
-      <td>7.48971829</td>
-      <td>2.07641</td>
-      <td>351.269018</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
-      <td>41374</td>
-      <td>LINESTRING (425997.732 8470930.307, 425997.430...</td>
-      <td>2023-10-25 14:01:57.644000+00:00</td>
-      <td>0.00122440</td>
-      <td>7.48971829</td>
-      <td>2.07641</td>
-      <td>351.269018</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>41377</td>
-      <td>LINESTRING (425997.925 8470932.419, 425997.617...</td>
-      <td>2023-10-25 14:01:58.640000+00:00</td>
-      <td>0.00351287</td>
-      <td>7.29891829</td>
-      <td>2.07766</td>
-      <td>351.185078</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>41380</td>
-      <td>LINESTRING (425998.420 8470932.489, 425998.112...</td>
-      <td>2023-10-25 14:01:58.640000+00:00</td>
-      <td>0.00160442</td>
-      <td>7.29891829</td>
-      <td>2.07766</td>
-      <td>351.185078</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>3357</th>
-      <td>80</td>
-      <td>60453</td>
-      <td>LINESTRING (424836.588 8471346.984, 424839.910...</td>
-      <td>2023-10-26 17:31:00.374000+00:00</td>
-      <td>0.00082171</td>
-      <td>12.00654560</td>
-      <td>3.221268</td>
-      <td>68.897539</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>3358</th>
-      <td>81</td>
-      <td>60453</td>
-      <td>LINESTRING (424871.357 8471332.287, 424868.608...</td>
-      <td>2023-10-26 17:32:04.363000+00:00</td>
-      <td>0.00032425</td>
-      <td>8.96876612</td>
-      <td>3.638225</td>
-      <td>187.094515</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>3359</th>
-      <td>82</td>
-      <td>60453</td>
-      <td>LINESTRING (424726.925 8469915.255, 424726.812...</td>
-      <td>2023-10-26 17:39:46.304000+00:00</td>
-      <td>0.00064466</td>
-      <td>7.48781668</td>
-      <td>2.365291</td>
-      <td>355.218532</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>3360</th>
-      <td>83</td>
-      <td>60453</td>
-      <td>LINESTRING (424724.991 8469940.891, 424725.576...</td>
-      <td>2023-10-26 17:39:55.304000+00:00</td>
-      <td>0.00055438</td>
-      <td>11.91005668</td>
-      <td>3.507319</td>
-      <td>53.786042</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <th>3361</th>
-      <td>84</td>
-      <td>60453</td>
-      <td>LINESTRING (424771.734 8470194.692, 424771.299...</td>
-      <td>2023-10-26 17:41:10.299000+00:00</td>
-      <td>0.00059681</td>
-      <td>13.48410935</td>
-      <td>3.626575</td>
-      <td>155.173314</td>
-      <td>0.5</td>
-    </tr>
-  </tbody>
-</table>
-<p>3362 rows × 9 columns</p>
-</div>
-
-
 
 ## Create machine tracks based on IsoTime attribute
 If documentation file has sections and section control was active, the track will be shifted to the middle of the recorded sections. 
@@ -369,46 +184,6 @@ gdf_machine_tracks = (
 )
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    Cell In[19], line 2
-          1 gdf_planter_tracks = (
-    ----> 2     gdf
-          3     .dissolve(by='IsoTime',as_index=False)
-          4     .assign(
-          5         geometry=lambda gdf: gdf.centroid,
-          6         timestep=lambda gdf: gdf.IsoTime.pipe(timestep),
-          7         track=lambda gdf: gdf.timestep.pipe(track),
-          8         # tracktimediff_s=lambda gdf: gdf.groupby('track').IsoTime.transform(np.ptp).dt.total_seconds(),
-          9         # trackelevationdiff_m=lambda gdf: gdf.groupby('track').Elevation.transform(np.ptp),
-         10         # worked_area_ha=lambda gdf: abs(gdf.DISTANCE*gdf.SWATHWIDTH)/10000,
-         11         # FUEL=lambda gdf: gdf.FUEL.mul(27), # number of sections, as FUEL is evenly divided by the number of sections
-         12     )
-         13     .groupby('track').agg({
-         14         'geometry':partial(points2linestring,errors='ignore'),
-         15         # include any attribute from file and its aggregation fuction. Below are a few examples from a seeding file, uncomment as needed.
-         16         # 'IsoTime':'min',
-         17         # 'tracktimediff_s':'first',
-         18         # 'trackelevationdiff_m':'first',
-         19         # 'worked_area_ha':'sum',
-         20         # 'FUEL':'sum',
-         21         # 'VEHICLSPEED':'mean',
-         22         # 'DISTANCE':'sum',
-         23         # 'AppliedRate':'mean',
-         24         # 'Elevation':'mean',
-         25     })
-         26     .dropna(subset='geometry')
-         27     .pipe(gpd.GeoDataFrame,geometry='geometry',crs=crs)
-         28     .pipe(to_parquet,'file.parquet',compression='zstd') # any GeoPandas io function can be used instead 
-         29 )
-    
-
-    NameError: name 'gdf' is not defined
-
-
 ## Merge machine tracks with section tracks, and make dissolving each machine track independently possible
 
 
@@ -423,26 +198,6 @@ gdf_machine_tracks = (
     .pipe(to_file,'output.gpkg',driver='GPKG')
 )
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    Cell In[20], line 2
-          1 (
-    ----> 2     gdf_section_tracks
-          3     .sort_values('IsoTime')
-          4     .merge(gdf_machine_tracks.reset_index().loc[:,['IsoTime','track']],on='IsoTime',how='left')
-          5     .sort_values(['datetime','track'])
-          6     .assign(track=lambda gdf: gdf.track.ffill())
-          7     .astype({'track':'int32'})
-          8     .pipe(to_file,'output.gpkg',driver='GPKG')
-          9 )
-    
-
-    NameError: name 'gdf_section_tracks' is not defined
-
 
 ---
 
@@ -501,35 +256,3 @@ gdf_2020_tracks = (
     .pipe(to_parquet,'output.parquet',compression='zstd')
 )
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    Cell In[22], line 2
-          1 gdf_2020_tracks = (
-    ----> 2     gdf_2020
-          3     # .assign(
-          4     #     # pass_track=lambda gdf: gdf.groupby(['Date','Field','Product','Pass Num'])['Duration(s)'].transform(track),
-          5     #     # worked_area_ha=lambda gdf: (gdf.loc[:,'Distance(m)']*18)/10000,
-          6     #     # calc_timestep=lambda gdf: gdf.loc[:,'Distance(m)']/gdf.loc[:,'Speed(km/h)'].div(3.6)
-          7     # )
-          8     .groupby(['Date','Field','Product','Pass Num'],as_index=False).agg({
-          9         'geometry':partial(points2linestring,errors='ignore'),
-         10         # 'Duration(s)':'sum',
-         11         # 'worked_area_ha':'sum',
-         12         # 'calc_timestep':'sum',
-         13         # 'Speed(km/h)':'mean',
-         14         # 'Distance(m)':'sum',
-         15         # 'Prod(ha/h)':'mean',
-         16         # 'Elevation(m)':'mean',
-         17         # 'Track(deg)':'mean',
-         18     })
-         19     .dropna(subset='geometry')
-         20     .pipe(to_parquet,'output.parquet',compression='zstd')
-         21 )
-    
-
-    NameError: name 'gdf_2020' is not defined
-
