@@ -100,7 +100,8 @@ def track(ser: pd.Series, thresh: int = 2) -> pd.Series:
   
   `ogr2ogr -t_srs EPSG:32721 -progress -f "Arrow" -lco "GEOMETRY_ENCODING=WKB" -lco "COMPRESSION=ZSTD" "folder/output.arrow" "folder/input.shp"`
   
-  `ogr2ogr output.gpkg input.shp`
+  `ogr2ogr -progress output.gpkg input.shp`
+  
 [More examples](https://gdal.org/programs/ogr2ogr.html#examples)
 
 ## Read file as downloaded from OperationsCenter
